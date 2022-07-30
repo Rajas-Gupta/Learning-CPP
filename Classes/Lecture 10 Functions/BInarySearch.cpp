@@ -26,12 +26,12 @@ int main()
     int key;
     cin>>key;
     int ans=BinarySearch(arr,0,n,key);
-    if (ans>=0)
+    if (ans==-1)
     {
-        cout<<"Key Found At: "<<ans<<endl;
+        cout<<"Key Not Found."<<endl;
     }
     else{
-        cout<<"Key Not Found."<<endl;
+        cout<<"Key Found At: "<<ans<<endl;
     }
     return 0;
 }
