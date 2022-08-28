@@ -12,7 +12,6 @@ void permutation(char * a,int i){
         permutation(a,i+1);
         swap(a[j],a[i]);
     }
-    
 }
 int main()
 {
