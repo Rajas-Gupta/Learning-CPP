@@ -7,11 +7,43 @@ class car{
     int model;
     int price;
     int seats;
+    //// DEFAUlT METHODS
+    /////1.Constructors
     ///////////////////////Default Constructor/////////////////////////////////
     car(){
-        cout<<"Inside Default Constructor"<<endl;
+        cout<<"Inside Default Constructor \n"<<endl;
     }
-    //////////////////////!Deault Constructor/////////////////////////////////
+    //////////////////////!Default Constructor/////////////////////////////////
+
+    ///////////////////////Parameterized Constructor/////////////////////////////
+    car(char * n,int p,int s,int m){
+        cout<<"Inside Parameterized Constructor \n"<<endl;
+        strcpy(name,n);
+        price=p;
+        seats=s;
+        model=m;
+    }
+    //////////////////////!Parameterized Constructor/////////////////////////////////
+    
+    ///////////////////////Parameterized Constructor-1/////////////////////////////
+    car(int p,char * n,int s,int m){
+        cout<<"Inside Parameterized Constructor-2 \n"<<endl;
+        strcpy(name,n);
+        price=p;
+        seats=s;
+        model=m;
+    }
+    //////////////////////!Parameterized Constructor-2/////////////////////////////////
+    
+    //////////////////////Copy Constructor/////////////////////////////////
+    car(car &X){
+        cout<<"Inside Copy Instructor \n"<<endl;
+        strcpy(name,X.name);
+        price=X.price;
+        seats=X.seats;
+        model=X.model;
+    }
+    //////////////////////!Copy Constructor/////////////////////////////////
     void print(){
         cout<<"Name : "<<name<<endl;
         cout<<"Price : "<<price<<endl;
@@ -19,7 +51,7 @@ class car{
         cout<<"Model : "<<model<<endl;
     }
 };
-
+    ////////////////////////////!BLUEPRINT///////////////////////////////////
 int main()
 {
     car A;  // A is an object of Class Car.
@@ -38,11 +70,20 @@ int main()
     cout<<A.seats<<endl;
     cout<<A.model<<endl;
 
-    car B;
-    strcpy(B.name,"Audi");
-    B.price=1500;
-    B.seats=2;
-    B.model=2022;
+    car B("Audi",1500,2,2022);
+    // strcpy(B.name,"Audi");
+    // B.price=1500;
+    // B.seats=2;
+    // B.model=2022;
     B.print();
+    car C(20000,"Jaguar",2,2022);
+    C.print();
+    cout<<endl;
+    //Car D=A;
+    car D(A);
+    D.print();
+    cout<<endl;
+    car E=B;
+    E.print();
     return 0;
 }
