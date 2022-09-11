@@ -35,15 +35,31 @@ class car{
     }
     //////////////////////!Parameterized Constructor-2/////////////////////////////////
     
-    //////////////////////Copy Constructor/////////////////////////////////
+    //////////////////////2. Copy Constructor/////////////////////////////////
     car(car &X){
-        cout<<"Inside Copy Instructor \n"<<endl;
+        cout<<"Inside Copy Constructor \n"<<endl;
         strcpy(name,X.name);
         price=X.price;
         seats=X.seats;
         model=X.model;
     }
     //////////////////////!Copy Constructor/////////////////////////////////
+
+    //////////////////////3. Copy Assignment Constructor/////////////////////////////////
+    void operator = (car &X){
+        cout<<"Inside Copy Assignment Constructor \n"<<endl;
+        strcpy(name,X.name);
+        price=X.price;
+        model=X.model;
+        seats=X.seats;
+    }
+    //////////////////////!Copy Assignment Constructor/////////////////////////////////
+
+    ////////////////////////////4. Destructor///////////////////////////////////
+    ~car(){
+        cout<<"Destroying Car "<<name<<endl;
+    }
+    ////////////////////////////!Destructor///////////////////////////////////
     void print(){
         cout<<"Name : "<<name<<endl;
         cout<<"Price : "<<price<<endl;
@@ -84,6 +100,9 @@ int main()
     D.print();
     cout<<endl;
     car E=B;
+    E.print();
+    cout<<endl;
+    E=C;
     E.print();
     return 0;
 }
